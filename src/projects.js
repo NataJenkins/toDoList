@@ -1,10 +1,14 @@
-let projects = [];
+const Projects = () => {
+  const projectsList = {};
+  const addProject = project => {
+    projectsList[project] = project;
+  }
 
-function addProject(text){
-    const todoProject = {
-        text,
-        checked = false
-    };
+  const removeProject = projectName => {
+    delete projectsList[projectName];
+  }
 
-    projects.push(todoProject);
+  return { projectsList, addProject, removeProject };
 }
+
+export default Projects;
