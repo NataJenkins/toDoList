@@ -1,4 +1,4 @@
-import { Projects, displayProject } from "./projects";
+import Projects from "./projects";
 import Tasks from "./tasks";
 
 const TaskUnit = (title, description, dueDate, priority) => {
@@ -11,13 +11,14 @@ const ProjectUnit = (name) => {
 
 const myProjects = Projects();
 const myTasks = Tasks();
-const sampleProject = ProjectUnit("TODO App", "Microverse JS");
+const sampleProject = ProjectUnit("TODO App");
 const sampleTask = TaskUnit(
   "JS Code",
   "Complete basic JS functionalities",
   "03/30/2021",
   "High"
 );
+
 myProjects.addProject(sampleProject);
 myTasks.addTask(sampleTask);
 
@@ -26,17 +27,9 @@ const saveProjectBtn = document.querySelector("#save-project-btn");
 
 window.addEventListener("click", (event) => {
   if (event.target === saveProjectBtn) {
-    const projectName = document.querySelector("#input-project-name").value;
-    const newProject = ProjectUnit(projectName);
+    const projectName = document.querySelector("#input-project-name");
+    const newProject = ProjectUnit(projectName.value);
     myProjects.addProject(newProject);
-    console.log(myProjects.projectsList);
+    projectName.value = '';
   }
 });
-
-for (let i = 0; i < myProjects.projectsList.length; i += 1) {
-  const projectCont = document.querySelector(".projects-list");
-  const projectHTML = displayProject(myProjects.projectsList[i].name);
-  projectCont.appendChild(projectHTML.projectTitle);
-}
-
-// <li class="project-list-item"><a href="#">Project 1</a></li>
