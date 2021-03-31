@@ -24,12 +24,18 @@ myTasks.addTask(sampleTask);
 
 const projectListElement = document.querySelector(".projects-list");
 const saveProjectBtn = document.querySelector("#save-project-btn");
+const saveTaskBtn = document.querySelector("#save-task-btn");
 
 window.addEventListener("click", (event) => {
   if (event.target === saveProjectBtn) {
     const projectName = document.querySelector("#input-project-name");
     const newProject = ProjectUnit(projectName.value);
     myProjects.addProject(newProject);
-    projectName.value = '';
+    projectName.value = "";
+  } else if (event.target === saveTaskBtn) {
+    const taskName = document.querySelector("#input-task-name");
+    const newTask = TaskUnit(taskName.value);
+    mytasks.addTask(newTask);
+    TaskName.value = "";
   }
 });

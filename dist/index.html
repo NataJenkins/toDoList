@@ -30,10 +30,9 @@
       <div class="projects-container">
         <h1>Projects</h1>
         <div class="projects-list-container">
-          <ul class="projects-list">
-          </ul>
+          <ul class="projects-list"></ul>
 
-          <!-- Button trigger modal -->
+          <!-- Button trigger modal Projects -->
           <button
             type="button"
             class="btn btn-primary"
@@ -44,7 +43,7 @@
             Add New Project
           </button>
 
-          <!-- Modal -->
+          <!-- Modal Project-->
           <div
             class="modal fade"
             id="exampleModal"
@@ -106,32 +105,106 @@
       <!--Lists-->
       <div class="list-container">
         <h1>List</h1>
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="flexCheckDefault"
-          />
-          <label class="form-check-label" for="flexCheckDefault"> Todo </label>
+        <div class="tasks-list">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              Todo
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckChecked"
+            />
+            <label class="form-check-label" for="flexCheckChecked">
+              Todo
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckChecked"
+            />
+            <label class="form-check-label" for="flexCheckChecked">
+              Todo
+            </label>
+          </div>
         </div>
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="flexCheckChecked"
-          />
-          <label class="form-check-label" for="flexCheckChecked"> Todo </label>
-        </div>
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="flexCheckChecked"
-          />
-          <label class="form-check-label" for="flexCheckChecked"> Todo </label>
+
+        <!--Button trigger modal Tasks-->
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#exampleModal"
+          id="add-task-btn"
+        >
+          Add New Task
+        </button>
+        <!-- Modal Tasks-->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Task Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="input-task-name"
+                      aria-describedby="emailHelp"
+                      placeholder="Enter Task Name"
+                    />
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="save-task-btn"
+                >
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
