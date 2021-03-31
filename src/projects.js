@@ -13,12 +13,8 @@ const Projects = () => {
 
 const displayProject = (project) => {
   const projectTitle = document.createElement("li");
+  projectTitle.innerHTML = `<a href="#" id="project-display">${project.name}</a>`;
   projectTitle.setAttribute("class", "project-list-item");
-
-  const projectAnc = document.createElement("a");
-  projectAnc.textContent = project.name;
-  projectAnc.setAttribute("id", "project-display");
-  projectTitle.appendChild(projectAnc);
 
   return { projectTitle };
 };

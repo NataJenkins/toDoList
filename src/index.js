@@ -35,10 +35,8 @@ window.addEventListener("click", (event) => {
 
 for (let i = 0; i < myProjects.projectsList.length; i += 1) {
   const projectCont = document.querySelector(".projects-list");
-  const projectHTML = displayProject(myProjects.projectsList[i]);
-  // projectCont.appendChild(projectHTML);
-
-  console.log(projectHTML);
+  const projectHTML = displayProject(myProjects.projectsList[i].name);
+  projectCont.appendChild(projectHTML.projectTitle);
 }
 
 // <li class="project-list-item"><a href="#">Project 1</a></li>
