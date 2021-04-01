@@ -12,6 +12,7 @@ const ProjectUnit = (name) => {
 const myProjects = Projects();
 const myTasks = Tasks();
 const sampleProject = ProjectUnit("TODO App");
+const sampleProject2 = ProjectUnit("TODO App2");
 const sampleTask = TaskUnit(
   "JS Code",
   "Complete basic JS functionalities",
@@ -20,6 +21,7 @@ const sampleTask = TaskUnit(
 );
 
 myProjects.addProject(sampleProject);
+myProjects.addProject(sampleProject2);
 myTasks.addTask(sampleTask);
 
 const projectListElement = document.querySelector(".projects-list");
@@ -39,3 +41,15 @@ window.addEventListener("click", (event) => {
     TaskName.value = "";
   }
 });
+
+const Active = () => {
+  const projectsDisplay = document.querySelector(".projects-list");
+  const projectsDisChild = projectsDisplay.children;
+  const projectsActive = projectsDisChild[0];
+
+  projectsDisplay.addClass("active");
+
+  console.log(projectsActive);
+};
+
+Active();

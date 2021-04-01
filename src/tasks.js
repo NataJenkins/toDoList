@@ -9,7 +9,7 @@ const displayTask = (task) => {
   taskCont.appendChild(taskCheck);
   taskCont.appendChild(taskTitle);
 
-  console.log(task);
+  // console.log(task);
   return { taskCont };
 };
 
@@ -19,7 +19,7 @@ const Tasks = () => {
     tasksList.push(displayTask(task));
     const taskListElement = document.querySelector(".tasks-list");
     taskListElement.appendChild(tasksList[tasksList.length - 1].taskCont);
-    console.log(tasksList[tasksList.length - 1].taskCont);
+    // console.log(tasksList[tasksList.length - 1].taskCont);
   };
   return { tasksList, addTask };
 };
