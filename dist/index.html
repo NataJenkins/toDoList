@@ -104,7 +104,7 @@
       </div>
       <!--Lists-->
       <div class="list-container">
-        <h1>List</h1>
+        <h1>Task List</h1>
         <div class="tasks-list">
           <div class="form-check">
             <input
@@ -146,7 +146,7 @@
           type="button"
           class="btn btn-primary"
           data-toggle="modal"
-          data-target="#exampleModal"
+          data-target="#exampleModalTask"
           id="add-task-btn"
         >
           Add New Task
@@ -154,7 +154,7 @@
         <!-- Modal Tasks-->
         <div
           class="modal fade"
-          id="exampleModal"
+          id="exampleModalTask"
           tabindex="-1"
           role="dialog"
           aria-labelledby="exampleModalLabel"
@@ -169,6 +169,7 @@
                   class="close"
                   data-dismiss="modal"
                   aria-label="Close"
+                  id="close-task-form"
                 >
                   <span aria-hidden="true">&times;</span>
                 </button>
