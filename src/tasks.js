@@ -19,10 +19,11 @@ const displayTask = (task) => {
 
 const Tasks = () => {
   const tasksList = [];
-  const addTask = (task) => {
+  const addTask = (task, project) => {
     task.id = tasksList.length + 1;
     tasksList.push(displayTask(task));
-    const taskListElement = document.querySelector(".tasks-list");
+    const taskListElement = document.querySelector(`.${project} > .list-container`);
+    console.log(taskListElement);
     taskListElement.appendChild(tasksList[tasksList.length - 1].taskContainer);
   };
 

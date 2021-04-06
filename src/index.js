@@ -11,18 +11,17 @@ const ProjectUnit = (name) => {
 
 const myProjects = Projects();
 const myTasks = Tasks();
-const sampleProject = ProjectUnit("TODO App");
+const sampleProject = ProjectUnit("Home");
 const sampleTask = TaskUnit(
-  "JS Code",
+  "Add more tasks!",
   "Complete basic JS functionalities",
   "03/30/2021",
   "High"
 );
 
-myProjects.addProject(sampleProject);
-myTasks.addTask(sampleTask);
+myProjects.addProject(sampleProject, false);
+myTasks.addTask(sampleTask, 'Home');
 
-const projectListElement = document.querySelector(".projects-list");
 const saveProjectBtn = document.querySelector("#save-project-btn");
 const saveTaskBtn = document.querySelector("#save-task-btn");
 
@@ -35,9 +34,11 @@ window.addEventListener("click", (event) => {
   }
   if (event.target === saveTaskBtn) {
     const taskName = document.querySelector("#input-task-name");
+    const projectName = document.querySelector('#input-select-task-name');
     const newProject = TaskUnit(taskName.value);
     myTasks.addTask(newProject);
     taskName.value = '';
   }
+
 });
 

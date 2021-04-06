@@ -36,3 +36,11 @@ ul li {
 ul li a {
   text-decoration: none;
 }
+
+.hidden {
+  display: none;
+}
+
+.modal-lg {
+  height: 80rem;
+}

@@ -6,7 +6,10 @@ const displayProject = (project) => {
   anchorElement.setAttribute("href", "#");
   anchorElement.textContent = project.name;
   projectTitle.appendChild(anchorElement);
-
+  projectTitle.addEventListener('click', () => {
+    const element = document.querySelector(`.${project.name}`);
+    element.classList.toggle("hidden");
+  });
   return { projectTitle };
 };
 
@@ -19,6 +22,21 @@ const Projects = () => {
     projectListElement.appendChild(
       projectsList[projectsList.length - 1].projectTitle
     );
+    const parent = document.querySelector('.tasks-list');
+    const tasksSection = document.createElement("div");
+    tasksSection.setAttribute("class", `${project.name} project`);
+    const tasksSectionTitle = document.createElement("h2");
+    tasksSectionTitle.textContent = `${project.name} Tasks`;
+    tasksSection.appendChild(tasksSectionTitle);
+    const tasksContainer = document.createElement("div");
+    tasksContainer.setAttribute("class", "list-container");
+    tasksSection.appendChild(tasksContainer);
+    parent.appendChild(tasksSection);
+    const options = document.querySelector("#input-select-task-name");
+    const option = document.createElement("option");
+    option.setAttribute("value", project.name);
+    option.textContent = project.name;
+    options.appendChild(option);
   };
 
   const removeProject = (index) => {
