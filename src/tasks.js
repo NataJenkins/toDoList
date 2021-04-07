@@ -1,37 +1,46 @@
-const displayTask = (task) => {
+import { filterTaskByCurrentProject } from "./index";
+
+const displayTask = ({ title }) => {
   const taskContainer = document.createElement("div");
-  taskContainer.setAttribute("class", "form-check");
   const taskInput = document.createElement("input");
+  const taskLabel = document.createElement("label");
+  taskContainer.setAttribute("class", "form-check");
   taskInput.setAttribute("class", "form-check-input");
   taskInput.setAttribute("type", "checkbox");
-  taskInput.setAttribute("id", `flexCheckDefault-${task.id}`);
-  taskInput.setAttribute("name", `${task.title}`);
-  taskInput.setAttribute("value", `${task.title}`);
-  const taskLabel = document.createElement("label");
-  taskLabel.setAttribute("for", `${task.title}`);
+  taskInput.setAttribute("name", `${title}`);
+  taskInput.setAttribute("value", `${title}`);
+  taskLabel.setAttribute("for", `${title}`);
   taskLabel.setAttribute("class", "form-check-label");
-  taskLabel.textContent = task.title
+  taskLabel.textContent = title;
+
   taskContainer.appendChild(taskInput);
   taskContainer.appendChild(taskLabel);
 
-  return { taskContainer };
+  return taskContainer;
 };
 
 const Tasks = () => {
   const tasksList = [];
-  const addTask = (task, project) => {
-    task.id = tasksList.length + 1;
-    tasksList.push(displayTask(task));
-    const taskListElement = document.querySelector(`.${project} > .list-container`);
-    console.log(taskListElement);
-    taskListElement.appendChild(tasksList[tasksList.length - 1].taskContainer);
+
+  const addTask = (taskObj) => {
+    tasksList.push(taskObj);
+    renderTasks();
+  };
+
+  const renderTasks = () => {
+    const taskListElement = document.querySelector(".tasks-list");
+    taskListElement.innerHTML = "";
+
+    filterTaskByCurrentProject(tasksList).forEach((task) => {
+      taskListElement.appendChild(displayTask(task));
+    });
   };
 
   const removeTask = (index) => {
     tasksList.splice(index, 1);
   };
 
-  return { tasksList, addTask, removeTask };
+  return { tasksList, addTask, removeTask, renderTasks };
 };
 
 export default Tasks;

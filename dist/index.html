@@ -20,13 +20,16 @@
     />
   </head>
   <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-dark bg-dark">
       <div class="container-fluid">
         <span class="navbar-text"> ToDoList </span>
       </div>
     </nav>
-    <div class="main-container d-flex">
-      <!--Projects-->
+
+    <!-- Content -->
+    <div class="container d-flex">
+      <!-- Projects Container-->
       <div class="projects-container">
         <h1>Projects</h1>
         <div class="projects-list-container">
@@ -40,7 +43,7 @@
             data-target="#exampleModal"
             id="add-project-btn"
           >
-            Add New Project
+            Add
           </button>
 
           <!-- Modal Project-->
@@ -60,7 +63,7 @@
                   </h5>
                   <button
                     type="button"
-                    class="close"
+                    class="btn"
                     data-dismiss="modal"
                     aria-label="Close"
                   >
@@ -70,10 +73,10 @@
                 <div class="modal-body">
                   <form>
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Project Name</label>
+                      <label for="input-project-name">Project Name</label>
                       <input
                         type="text"
-                        class="form-control"
+                        class="form-control mt-1"
                         id="input-project-name"
                         aria-describedby="emailHelp"
                         placeholder="Enter Project Name"
@@ -94,7 +97,7 @@
                     class="btn btn-primary"
                     id="save-project-btn"
                   >
-                    Save changes
+                    Save
                   </button>
                 </div>
               </div>
@@ -102,11 +105,11 @@
           </div>
         </div>
       </div>
-      <!--Lists-->
-      <div class="list-container">
+
+      <!-- Tasks Container-->
+      <div class="tasks-container d-none">
         <h1>Tasks</h1>
-        <div class="tasks-list">
-        </div>
+        <div class="tasks-list"></div>
 
         <!--Button trigger modal Tasks-->
         <button
@@ -131,22 +134,14 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
-                <div>
-                  <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-dismiss="modal"
-                >
-                  Close
-                </button>
                 <button
                   type="button"
-                  class="btn btn-primary"
-                  id="save-task-btn"
+                  class="btn"
+                  data-dismiss="modal"
+                  aria-label="Close"
                 >
-                  Save changes
+                  <span aria-hidden="true">&times;</span>
                 </button>
-                </div> 
               </div>
               <div class="modal-body">
                 <form>
@@ -159,16 +154,24 @@
                       aria-describedby="emailHelp"
                       placeholder="Enter Task Name"
                     />
-                    <label for="project">Choose Project</label>
-                    <select
-                      type="text"
-                      class="form-control"
-                      id="input-select-task-name"
-                      aria-describedby="emailHelp"
-                      placeholder="Choose Project Name"
-                    />
                   </div>
                 </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="save-task-btn"
+                >
+                  Save
+                </button>
               </div>
             </div>
           </div>
