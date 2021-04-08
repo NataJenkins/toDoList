@@ -2,10 +2,9 @@ import Projects from './projects';
 import Tasks from './tasks';
 
 export const changeProjectName = (name, id) => {
-  currentProject = name;
   const taskHeader = document.querySelector('.tasks-container > h1');
   const selectedProject = document.querySelector('.selected-project');
-  taskHeader.textContent = `${currentProject} Tasks`;
+  taskHeader.textContent = `${name} Tasks`;
   if (selectedProject) {
     selectedProject.classList.remove('selected-project');
   }
