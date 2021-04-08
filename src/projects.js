@@ -1,16 +1,16 @@
-import { changeProjectName } from "./index";
+import { changeProjectName } from './index';
 
 const displayProject = ({ id, name }) => {
-  const projectTitle = document.createElement("li");
-  const anchorElement = document.createElement("a");
+  const projectTitle = document.createElement('li');
+  const anchorElement = document.createElement('a');
 
-  projectTitle.setAttribute("class", "project-list-item");
-  anchorElement.setAttribute("id", `project-display-${id}`);
-  anchorElement.setAttribute("href", "#");
+  projectTitle.setAttribute('class', 'project-list-item');
+  anchorElement.setAttribute('id', `project-display-${id}`);
+  anchorElement.setAttribute('href', '#');
   anchorElement.textContent = name;
  
   projectTitle.appendChild(anchorElement);
-  projectTitle.addEventListener("click", () => {
+  projectTitle.addEventListener('click', () => {
     changeProjectName(name, id);
   });
   return projectTitle;
@@ -26,8 +26,8 @@ const Projects = () => {
   };
 
   const renderProjects = () => {
-    const projectListElement = document.querySelector(".projects-list");
-    projectListElement.innerHTML = "";
+    const projectListElement = document.querySelector('.projects-list');
+    projectListElement.innerHTML = '';
 
     projectList.forEach((project) => {
       projectListElement.appendChild(displayProject(project));
