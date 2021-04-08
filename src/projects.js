@@ -8,7 +8,7 @@ const displayProject = ({ id, name }) => {
   anchorElement.setAttribute("id", `project-display-${id}`);
   anchorElement.setAttribute("href", "#");
   anchorElement.textContent = name;
-
+ 
   projectTitle.appendChild(anchorElement);
   projectTitle.addEventListener("click", () => {
     changeProjectName(name, id);
