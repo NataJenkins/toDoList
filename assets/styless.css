@@ -1,0 +1,45 @@
+html,
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  color: #663399;
+}
+
+.projects-container {
+  width: 30%;
+  height: calc(100vh - 56px);
+  border-right: 1px solid #212529;
+  margin-right: 8px;
+}
+
+.projects-list {
+  padding: 0;
+}
+
+.tasks-container {
+  width: 70%;
+  height: 100%;
+}
+
+.selected-project {
+  color: #149a48;
+}
+.selected-project:hover {
+  color: #107b39;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #7f40bf;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+  color: #663399;
+}
