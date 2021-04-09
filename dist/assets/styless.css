@@ -43,3 +43,9 @@ ul li a:hover {
   text-decoration: underline;
   color: #663399;
 }
+
+.form-check-element {
+  margin-right: 0.5rem;
+
+  padding-right: 0.5rem;
+}
