@@ -21,7 +21,7 @@ export const filterTaskByCurrentProject = (tasksArr) =>
   tasksArr.filter((task) => task.project === currentProject);
 
 const { addProject } = Projects();
-const { addTask, renderTasks } = Tasks();
+const { addTask, renderTasks, removeTask } = Tasks();
 let currentProject = undefined;
 
 addProject({ name: "hola" });
@@ -80,6 +80,7 @@ addTask({
 
 const saveProjectBtn = document.querySelector("#save-project-btn");
 const saveTaskBtn = document.querySelector("#save-task-btn");
+const deleteTaskBtn = document.querySelector(".fa-trash-alt");
 
 saveProjectBtn.addEventListener("click", (e) => {
   const projectName = document.querySelector("#input-project-name");
@@ -89,9 +90,21 @@ saveProjectBtn.addEventListener("click", (e) => {
 
 saveTaskBtn.addEventListener("click", (e) => {
   const taskName = document.querySelector("#input-task-name");
-  addTask({ title: taskName.value, project: currentProject });
+  const taskDescription = document.querySelector("#input-task-description");
+  const taskDate = document.querySelector("#input-task-date");
+  addTask({
+    title: taskName.value,
+    project: currentProject,
+    description: taskDescription.value,
+    date: taskDate.value,
+  });
   taskName.value = "";
 });
+
+// deleteTaskBtn.addEventListener("click", (e) => {
+//   var taskRemove = tasksList.id;
+//   removeTask(taskRemove);
+// });
 
 const renderTaskContainer = (isCurrentProject) => {
   if (!isCurrentProject) {
