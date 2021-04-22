@@ -20,6 +20,8 @@ const Tasks = () => {
     filterTaskByCurrentProject(getLocalStorageTasks()).forEach((task) => {
       taskListElement.appendChild(displayTask(task));
     });
+
+    console.log(getLocalStorageTasks);
   };
 
   const editTask = (taskObj) => {};

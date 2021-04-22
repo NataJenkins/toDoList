@@ -21,7 +21,7 @@ export const filterTaskByCurrentProject = (tasksArr) =>
   tasksArr.filter((task) => task && task.project === currentProject);
 
 const { addProject, renderProjects } = Projects();
-const { addTask, renderTasks, removeTask } = Tasks();
+const { addTask, renderTasks } = Tasks();
 let currentProject = undefined;
 renderProjects();
 
