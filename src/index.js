@@ -18,69 +18,15 @@ export const changeProjectName = (name, id) => {
 };
 
 export const filterTaskByCurrentProject = (tasksArr) =>
-  tasksArr.filter((task) => task.project === currentProject);
+  tasksArr.filter((task) => task && task.project === currentProject);
 
-const { addProject } = Projects();
+const { addProject, renderProjects } = Projects();
 const { addTask, renderTasks, removeTask } = Tasks();
 let currentProject = undefined;
-
-addProject({ name: "hola" });
-addProject({ name: "hola1" });
-addProject({ name: "hola2" });
-addProject({ name: "hola3" });
-
-addTask({
-  title: "quetal",
-  project: "hola",
-  description: "description",
-  date: "02/04/2022",
-});
-addTask({
-  title: "quetal1",
-  project: "hola1",
-  description: "description",
-  date: "02/04/2022",
-});
-addTask({
-  title: "quetal2",
-  project: "hola2",
-  description: "description",
-  date: "02/04/2022",
-});
-addTask({
-  title: "quetal3",
-  project: "hola3",
-  description: "description",
-  date: "02/04/2022",
-});
-addTask({
-  title: "quetal",
-  project: "hola",
-  description: "description",
-  date: "02/04/2022",
-});
-addTask({
-  title: "quetal1",
-  project: "hola1",
-  description: "description",
-  date: "02/04/2022",
-});
-addTask({
-  title: "quetal2",
-  project: "hola2",
-  description: "description",
-  date: "02/04/2022",
-});
-addTask({
-  title: "quetal3",
-  project: "hola3",
-  description: "description",
-  date: "02/04/2022",
-});
+renderProjects();
 
 const saveProjectBtn = document.querySelector("#save-project-btn");
 const saveTaskBtn = document.querySelector("#save-task-btn");
-const deleteTaskBtn = document.querySelector(".fa-trash-alt");
 
 saveProjectBtn.addEventListener("click", (e) => {
   const projectName = document.querySelector("#input-project-name");
@@ -100,11 +46,6 @@ saveTaskBtn.addEventListener("click", (e) => {
   });
   taskName.value = "";
 });
-
-// deleteTaskBtn.addEventListener("click", (e) => {
-//   var taskRemove = tasksList.id;
-//   removeTask(taskRemove);
-// });
 
 const renderTaskContainer = (isCurrentProject) => {
   if (!isCurrentProject) {
