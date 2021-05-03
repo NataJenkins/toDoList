@@ -23,14 +23,17 @@ const Tasks = () => {
   };
 
   const editTask = (id) => {
-    const editTaskBtn = document.querySelector("#edit-task-btn");
     let taskArray = getLocalStorageTasks();
+    const editTaskBtn = document.querySelector("#edit-task-btn");
+    const taskName = document.querySelector("#edit-task-name");
+    const taskDescription = document.querySelector("#edit-task-description");
+    const taskDate = document.querySelector("#edit-task-date");
+    taskName.value = taskArray[id].title;
+    taskDescription.value = taskArray[id].description;
+    taskDate.value = taskArray[id].date;
 
     $("#editModalTask").modal("show");
     editTaskBtn.addEventListener("click", (e) => {
-      const taskName = document.querySelector("#edit-task-name");
-      const taskDescription = document.querySelector("#edit-task-description");
-      const taskDate = document.querySelector("#edit-task-date");
       taskArray[id].title = taskName.value;
       taskArray[id].description = taskDescription.value;
       taskArray[id].date = taskDate.value;
@@ -38,9 +41,7 @@ const Tasks = () => {
       setLocalStorageTasks(taskArray);
       renderTasks();
 
-      taskName.value = "";
-      taskDescription.value = "";
-      taskDate.value = "";
+      $("#editModalTask").modal("hide");
     });
   };
 
