@@ -18,13 +18,31 @@ const Tasks = () => {
     taskListElement.innerHTML = "";
 
     filterTaskByCurrentProject(getLocalStorageTasks()).forEach((task) => {
-      taskListElement.appendChild(displayTask(task));
+      taskListElement.appendChild(createTaskElement(task));
     });
-
-    console.log(getLocalStorageTasks);
   };
 
-  const editTask = (taskObj) => {};
+  const editTask = (id) => {
+    const editTaskBtn = document.querySelector("#edit-task-btn");
+    let taskArray = getLocalStorageTasks();
+
+    $("#editModalTask").modal("show");
+    editTaskBtn.addEventListener("click", (e) => {
+      const taskName = document.querySelector("#edit-task-name");
+      const taskDescription = document.querySelector("#edit-task-description");
+      const taskDate = document.querySelector("#edit-task-date");
+      taskArray[id].title = taskName.value;
+      taskArray[id].description = taskDescription.value;
+      taskArray[id].date = taskDate.value;
+
+      setLocalStorageTasks(taskArray);
+      renderTasks();
+
+      taskName.value = "";
+      taskDescription.value = "";
+      taskDate.value = "";
+    });
+  };
 
   const removeTask = (id) => {
     let taskArray = getLocalStorageTasks();
@@ -33,7 +51,24 @@ const Tasks = () => {
     renderTasks();
   };
 
-  const displayTask = ({ title, description, date, id }) => {
+  // Save button on modal
+  document.querySelector("#save-task-btn").addEventListener("click", (e) => {
+    const taskName = document.querySelector("#input-task-name");
+    const taskDescription = document.querySelector("#input-task-description");
+    const taskDate = document.querySelector("#input-task-date");
+    addTask({
+      title: taskName.value,
+      project: currentProject,
+      description: taskDescription.value,
+      date: taskDate.value,
+    });
+    taskName.value = "";
+    taskDescription.value = "";
+    taskDate.value = "";
+  });
+
+  // Create elemets for each task
+  const createTaskElement = ({ title, description, date, id }) => {
     const taskContainer = document.createElement("div");
     const taskInput = document.createElement("input");
     const taskLabel = document.createElement("label");
@@ -79,10 +114,14 @@ const Tasks = () => {
       removeTask(id);
     });
 
+    editBtn.addEventListener("click", (e) => {
+      editTask(id);
+    });
+
     return taskContainer;
   };
 
-  return { addTask, removeTask, renderTasks };
+  return { renderTasks };
 };
 
 export default Tasks;
