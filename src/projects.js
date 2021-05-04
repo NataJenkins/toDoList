@@ -49,7 +49,7 @@ const Projects = () => {
       addProject({ name: projectName.value });
       projectName.value = "";
     } else {
-      console.error("Invalid form");
+      alert("Invalid form");
     }
   });
 

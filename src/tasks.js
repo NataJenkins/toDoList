@@ -35,9 +35,11 @@ const Tasks = () => {
     const taskName = document.querySelector("#edit-task-name");
     const taskDescription = document.querySelector("#edit-task-description");
     const taskDate = document.querySelector("#edit-task-date");
+    const taskPriority = document.querySelector("#edit-task-priority");
     taskName.value = taskArray[id].title;
     taskDescription.value = taskArray[id].description;
     taskDate.value = taskArray[id].date;
+    taskPriority.value = taskArray[id].priority;
 
     $("#editModalTask").modal("show");
     editTaskBtn.addEventListener("click", (e) => {
@@ -45,12 +47,13 @@ const Tasks = () => {
         taskArray[id].title = taskName.value;
         taskArray[id].description = taskDescription.value;
         taskArray[id].date = taskDate.value;
+        taskArray[id].priority = taskPriority.value;
 
         setLocalStorageTasks(taskArray);
         renderTasks();
         $("#editModalTask").modal("hide");
       } else {
-        console.error("Invalid form");
+        alert("Invalid form");
       }
     });
   };
@@ -68,29 +71,32 @@ const Tasks = () => {
       const taskName = document.querySelector("#input-task-name");
       const taskDescription = document.querySelector("#input-task-description");
       const taskDate = document.querySelector("#input-task-date");
+      const taskPriority = document.querySelector("#input-task-priority");
       if (taskName.value && taskDescription.value && taskDate.value) {
         addTask({
           title: taskName.value,
           project: currentProject,
           description: taskDescription.value,
           date: taskDate.value,
+          priority: taskPriority.value,
         });
         taskName.value = "";
         taskDescription.value = "";
         taskDate.value = "";
       } else {
-        console.error("Invalid form");
+        alert("Invalid form");
       }
     });
   };
 
   // Create elemets for each task
-  const createTaskElement = ({ title, description, date, id }) => {
+  const createTaskElement = ({ title, description, date, priority, id }) => {
     const taskContainer = document.createElement("div");
     const taskInput = document.createElement("input");
     const taskLabel = document.createElement("p");
     const taskDescription = document.createElement("p");
     const taskDate = document.createElement("p");
+    const taskPriority = document.createElement("p");
     const icons = document.createElement("div");
     const deleteIcon = document.createElement("i");
     const deleteBtn = document.createElement("button");
@@ -102,10 +108,10 @@ const Tasks = () => {
     taskInput.setAttribute("class", "form-check-input");
     taskInput.setAttribute("type", "checkbox");
     taskInput.setAttribute("name", `${title}`);
-    // taskInput.setAttribute("value", `${title}`); isCompleted?
     taskLabel.setAttribute("class", "title form-check-element");
     taskDescription.setAttribute("class", "description form-check-element");
     taskDate.setAttribute("class", "date form-check-element");
+    taskPriority.setAttribute("class", "priority form-check-element");
     icons.setAttribute("class", "icons");
     deleteBtn.setAttribute("id", "delete-btn");
     deleteIcon.setAttribute("class", "far fa-trash-alt");
@@ -115,11 +121,13 @@ const Tasks = () => {
     taskLabel.textContent = title;
     taskDescription.textContent = description;
     taskDate.textContent = date;
+    taskPriority.textContent = priority;
 
     taskContainer.appendChild(taskInput);
     taskContainer.appendChild(taskLabel);
     taskContainer.appendChild(taskDescription);
     taskContainer.appendChild(taskDate);
+    taskContainer.appendChild(taskPriority);
     taskContainer.appendChild(icons);
     icons.appendChild(editBtn);
     icons.appendChild(deleteBtn);

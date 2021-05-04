@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "webpack serve --open",
+    "dev": "webpack --mode development",
     "watch": "webpack --watch"
   },
   "repository": {

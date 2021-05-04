@@ -117,11 +117,12 @@
       <div class="tasks-container d-none">
         <h1 class="section-title">Tasks</h1>
         <div>
-          <div class="form-check d-flex"> 
-          <input class="form-check-input no-visiblity">
-          <p class="title">Title</p>
-          <p class="description">Description</p>
-          <p class="date">Date</p>
+          <div class="form-check d-flex">
+            <input class="form-check-input no-visiblity" />
+            <p class="title">Title</p>
+            <p class="description">Description</p>
+            <p class="date">Date</p>
+            <p class="priority">Priority</p>
           </div>
         </div>
         <div class="tasks-list"></div>
@@ -137,7 +138,7 @@
           Add New Task
         </button>
         <!-- 
-          Save Modal Tasks
+          Save Edit Tasks
         -->
         <div
           class="modal fade"
@@ -188,6 +189,16 @@
                     aria-describedby="emailHelp"
                     placeholder="Enter Task due Date"
                   />
+                  <label for="exampleInputEmail1">Priority</label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="5"
+                    class="form-control"
+                    id="edit-task-priority"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter Priority 1-5"
+                  />
                 </form>
               </div>
               <div class="modal-footer">
@@ -210,7 +221,7 @@
           </div>
         </div>
         <!--
-          Modal Edit Task
+          Modal Save Task
         -->
         <div
           class="modal fade"
@@ -260,6 +271,16 @@
                     id="input-task-date"
                     aria-describedby="emailHelp"
                     placeholder="Enter Task due Date"
+                  />
+                  <label for="exampleInputEmail1">Priority</label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="5"
+                    class="form-control"
+                    id="input-task-priority"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter Priority 1-5"
                   />
                 </form>
               </div>

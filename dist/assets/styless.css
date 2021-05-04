@@ -55,7 +55,8 @@ ul li a:hover {
 
 .title,
 .description,
-.date {
+.date,
+.priority {
   width: 120px;
   padding-left: 6px;
 }
