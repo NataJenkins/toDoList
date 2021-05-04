@@ -44,8 +44,22 @@ ul li a:hover {
   color: #663399;
 }
 
-.form-check-element {
-  margin-right: 0.5rem;
+.section-title {
+  margin-bottom: 32px;
+}
 
-  padding-right: 0.5rem;
+.form-check-input,
+.tasks-checkbox {
+  width: 25px;
+}
+
+.title,
+.description,
+.date {
+  width: 120px;
+  padding-left: 6px;
+}
+
+.no-visiblity {
+  visibility: hidden;
 }

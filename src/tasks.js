@@ -88,9 +88,9 @@ const Tasks = () => {
   const createTaskElement = ({ title, description, date, id }) => {
     const taskContainer = document.createElement("div");
     const taskInput = document.createElement("input");
-    const taskLabel = document.createElement("label");
-    const taskDescription = document.createElement("label");
-    const taskDate = document.createElement("label");
+    const taskLabel = document.createElement("p");
+    const taskDescription = document.createElement("p");
+    const taskDate = document.createElement("p");
     const icons = document.createElement("div");
     const deleteIcon = document.createElement("i");
     const deleteBtn = document.createElement("button");
@@ -102,16 +102,15 @@ const Tasks = () => {
     taskInput.setAttribute("class", "form-check-input");
     taskInput.setAttribute("type", "checkbox");
     taskInput.setAttribute("name", `${title}`);
-    taskInput.setAttribute("value", `${title}`);
-    taskLabel.setAttribute("for", `${title}`);
-    taskLabel.setAttribute("class", "form-check-label form-check-element");
+    // taskInput.setAttribute("value", `${title}`); isCompleted?
+    taskLabel.setAttribute("class", "title form-check-element");
     taskDescription.setAttribute("class", "description form-check-element");
     taskDate.setAttribute("class", "date form-check-element");
     icons.setAttribute("class", "icons");
-    deleteIcon.setAttribute("class", "far fa-trash-alt");
     deleteBtn.setAttribute("id", "delete-btn");
-    editIcon.setAttribute("class", "far fa-edit");
+    deleteIcon.setAttribute("class", "far fa-trash-alt");
     editBtn.setAttribute("id", "edit-btn");
+    editIcon.setAttribute("class", "far fa-edit");
 
     taskLabel.textContent = title;
     taskDescription.textContent = description;
