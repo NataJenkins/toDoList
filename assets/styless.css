@@ -43,3 +43,24 @@ ul li a:hover {
   text-decoration: underline;
   color: #663399;
 }
+
+.section-title {
+  margin-bottom: 32px;
+}
+
+.form-check-input,
+.tasks-checkbox {
+  width: 25px;
+}
+
+.title,
+.description,
+.date,
+.priority {
+  width: 120px;
+  padding-left: 6px;
+}
+
+.no-visiblity {
+  visibility: hidden;
+}

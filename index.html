@@ -18,6 +18,11 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap"
       rel="stylesheet"
     />
+    <!--FontAwesome-->
+    <script
+      src="https://kit.fontawesome.com/c183234f64.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <!-- Navbar -->
@@ -31,7 +36,7 @@
     <div class="container d-flex">
       <!-- Projects Container-->
       <div class="projects-container">
-        <h1>Projects</h1>
+        <h1 class="section-title">Projects</h1>
         <div class="projects-list-container">
           <ul class="projects-list"></ul>
 
@@ -46,7 +51,9 @@
             Add
           </button>
 
-          <!-- Modal Project-->
+          <!-- 
+            Modal Project
+          -->
           <div
             class="modal fade"
             id="exampleModal"
@@ -108,7 +115,16 @@
 
       <!-- Tasks Container-->
       <div class="tasks-container d-none">
-        <h1>Tasks</h1>
+        <h1 class="section-title">Tasks</h1>
+        <div>
+          <div class="form-check d-flex">
+            <input class="form-check-input no-visiblity" />
+            <p class="title">Title</p>
+            <p class="description">Description</p>
+            <p class="date">Date</p>
+            <p class="priority">Priority</p>
+          </div>
+        </div>
         <div class="tasks-list"></div>
 
         <!--Button trigger modal Tasks-->
@@ -121,7 +137,92 @@
         >
           Add New Task
         </button>
-        <!-- Modal Tasks-->
+        <!-- 
+          Save Edit Tasks
+        -->
+        <div
+          class="modal fade"
+          id="editModalTask"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Task</h5>
+                <button
+                  type="button"
+                  class="btn"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Task Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="edit-task-name"
+                      aria-describedby="emailHelp"
+                      placeholder="Enter Task Name"
+                    />
+                  </div>
+                  <label for="exampleInputEmail1">Task Description</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="edit-task-description"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter Task Description"
+                  />
+                  <label for="exampleInputEmail1">Task Date</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="edit-task-date"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter Task due Date"
+                  />
+                  <label for="exampleInputEmail1">Priority</label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="5"
+                    class="form-control"
+                    id="edit-task-priority"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter Priority 1-5"
+                  />
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="edit-task-btn"
+                >
+                  Save
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--
+          Modal Save Task
+        -->
         <div
           class="modal fade"
           id="exampleModalTask"
@@ -155,6 +256,32 @@
                       placeholder="Enter Task Name"
                     />
                   </div>
+                  <label for="exampleInputEmail1">Task Description</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input-task-description"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter Task Description"
+                  />
+                  <label for="exampleInputEmail1">Task Date</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="input-task-date"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter Task due Date"
+                  />
+                  <label for="exampleInputEmail1">Priority</label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="5"
+                    class="form-control"
+                    id="input-task-priority"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter Priority 1-5"
+                  />
                 </form>
               </div>
               <div class="modal-footer">
