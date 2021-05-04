@@ -8,8 +8,13 @@ const Tasks = () => {
 
   const addTask = (taskObj) => {
     let taskArray = getLocalStorageTasks();
-    const tasksId = taskArray.length;
-    setLocalStorageTasks([...taskArray, { ...taskObj, id: tasksId }]);
+    if (taskArray) {
+      const tasksId = taskArray.length;
+      setLocalStorageTasks([...taskArray, { ...taskObj, id: tasksId }]);
+    } else {
+      const tasksId = 0;
+      setLocalStorageTasks([{ ...taskObj, id: tasksId }]);
+    }
     renderTasks();
   };
 
@@ -17,9 +22,11 @@ const Tasks = () => {
     const taskListElement = document.querySelector(".tasks-list");
     taskListElement.innerHTML = "";
 
-    filterTaskByCurrentProject(getLocalStorageTasks()).forEach((task) => {
-      taskListElement.appendChild(createTaskElement(task));
-    });
+    if (getLocalStorageTasks()) {
+      filterTaskByCurrentProject(getLocalStorageTasks()).forEach((task) => {
+        taskListElement.appendChild(createTaskElement(task));
+      });
+    }
   };
 
   const editTask = (id) => {
@@ -34,14 +41,17 @@ const Tasks = () => {
 
     $("#editModalTask").modal("show");
     editTaskBtn.addEventListener("click", (e) => {
-      taskArray[id].title = taskName.value;
-      taskArray[id].description = taskDescription.value;
-      taskArray[id].date = taskDate.value;
+      if (taskName.value && taskDescription.value && taskDate.value) {
+        taskArray[id].title = taskName.value;
+        taskArray[id].description = taskDescription.value;
+        taskArray[id].date = taskDate.value;
 
-      setLocalStorageTasks(taskArray);
-      renderTasks();
-
-      $("#editModalTask").modal("hide");
+        setLocalStorageTasks(taskArray);
+        renderTasks();
+        $("#editModalTask").modal("hide");
+      } else {
+        console.error("Invalid form");
+      }
     });
   };
 
@@ -53,20 +63,26 @@ const Tasks = () => {
   };
 
   // Save button on modal
-  document.querySelector("#save-task-btn").addEventListener("click", (e) => {
-    const taskName = document.querySelector("#input-task-name");
-    const taskDescription = document.querySelector("#input-task-description");
-    const taskDate = document.querySelector("#input-task-date");
-    addTask({
-      title: taskName.value,
-      project: currentProject,
-      description: taskDescription.value,
-      date: taskDate.value,
+  const saveTask = (currentProject) => {
+    document.querySelector("#save-task-btn").addEventListener("click", (e) => {
+      const taskName = document.querySelector("#input-task-name");
+      const taskDescription = document.querySelector("#input-task-description");
+      const taskDate = document.querySelector("#input-task-date");
+      if (taskName.value && taskDescription.value && taskDate.value) {
+        addTask({
+          title: taskName.value,
+          project: currentProject,
+          description: taskDescription.value,
+          date: taskDate.value,
+        });
+        taskName.value = "";
+        taskDescription.value = "";
+        taskDate.value = "";
+      } else {
+        console.error("Invalid form");
+      }
     });
-    taskName.value = "";
-    taskDescription.value = "";
-    taskDate.value = "";
-  });
+  };
 
   // Create elemets for each task
   const createTaskElement = ({ title, description, date, id }) => {
@@ -122,7 +138,7 @@ const Tasks = () => {
     return taskContainer;
   };
 
-  return { renderTasks };
+  return { renderTasks, saveTask };
 };
 
 export default Tasks;

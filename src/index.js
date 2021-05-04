@@ -20,17 +20,16 @@ export const changeProjectName = (name, id) => {
 export const filterTaskByCurrentProject = (tasksArr) =>
   tasksArr.filter((task) => task && task.project === currentProject);
 
-const { addProject, renderProjects } = Projects();
-const { renderTasks } = Tasks();
 let currentProject = undefined;
-renderProjects();
+const { addProject, renderProjects } = Projects();
+const { saveTask, renderTasks } = Tasks();
 
-const saveProjectBtn = document.querySelector("#save-project-btn");
+if (localStorage.getItem("projects")) {
+  renderProjects();
+}
 
-saveProjectBtn.addEventListener("click", (e) => {
-  const projectName = document.querySelector("#input-project-name");
-  addProject({ name: projectName.value });
-  projectName.value = "";
+document.querySelector("#save-task-btn").addEventListener("click", (e) => {
+  saveTask(currentProject);
 });
 
 const renderTaskContainer = (isCurrentProject) => {

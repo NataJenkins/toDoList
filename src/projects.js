@@ -25,23 +25,33 @@ const Projects = () => {
 
   const addProject = ({ name }) => {
     let projectArray = getLocalStorageProjects();
-    const projectId = projectArray.length;
-    setLocalStorageProjects([...projectArray, { name, id: projectId }]);
+    if (projectArray) {
+      const projectId = projectArray.length;
+      setLocalStorageProjects([...projectArray, { name, id: projectId }]);
+    } else {
+      const projectId = 0;
+      setLocalStorageProjects([{ name, id: projectId }]);
+    }
     renderProjects();
   };
 
   const renderProjects = () => {
     const projectListElement = document.querySelector(".projects-list");
     projectListElement.innerHTML = "";
-
     getLocalStorageProjects().forEach((project) => {
       projectListElement.appendChild(displayProject(project));
     });
   };
 
-  // const removeProject = (index) => {
-  //   projectsLists.splice(index, 1);
-  // };
+  document.querySelector("#save-project-btn").addEventListener("click", (e) => {
+    const projectName = document.querySelector("#input-project-name");
+    if (projectName.value) {
+      addProject({ name: projectName.value });
+      projectName.value = "";
+    } else {
+      console.error("Invalid form");
+    }
+  });
 
   return { addProject, renderProjects };
 };
