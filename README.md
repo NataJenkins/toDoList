@@ -24,6 +24,10 @@ To get a local copy up and running follow these simple steps:
 1. Go to the [repository page](https://github.com/pointerish/Books/).
 2. Press the "Code" button and copy the link.
 3. Clone it using git command `git clone <link>`.
+4. On console cd into project folder
+5. run npm install
+6. run npm run build
+7. open index on browser
 
 ## :bust_in_silhouette: Author
 
