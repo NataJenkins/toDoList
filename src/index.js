@@ -1,5 +1,7 @@
-import Projects from "./projects";
+import { renderProjects } from "./projects";
 import Tasks from "./tasks";
+
+//const { renderProjects } = Projects();
 
 export const changeProjectName = (name, id) => {
   currentProject = name;
@@ -21,7 +23,7 @@ export const filterTaskByCurrentProject = (tasksArr) =>
   tasksArr.filter((task) => task && task.project === currentProject);
 
 let currentProject = undefined;
-const { addProject, renderProjects } = Projects();
+
 const { saveTask, renderTasks } = Tasks();
 
 if (localStorage.getItem("projects")) {
