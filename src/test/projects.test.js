@@ -10,7 +10,7 @@ describe("Projects", () => {
   it("Project should have given name", () => {
     expect(testProject.name).toEqual("hola");
   });
-  it("myProject should not have another name", () => {
+  it("Project should not have another name", () => {
     expect(testProject.name).not.toEqual("project");
   });
 });

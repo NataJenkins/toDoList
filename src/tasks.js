@@ -14,7 +14,7 @@ const addTask = (taskObj) => {
     const tasksId = 0;
     setLocalStorageTasks([{ ...taskObj, id: tasksId }]);
   }
-  renderTasks();
+  return taskObj;
 };
 
 const renderTasks = () => {
@@ -144,4 +144,4 @@ const createTaskElement = ({ title, description, date, priority, id }) => {
   return taskContainer;
 };
 
-export { renderTasks, saveTask };
+export { addTask, renderTasks, saveTask };

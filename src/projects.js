@@ -37,15 +37,6 @@ const addProject = ({ name }) => {
     setLocalStorageProjects([{ name, id: projectId }]);
   }
   return { name };
-  //renderProjects();
 };
-// document.querySelector("#save-project-btn").addEventListener("click", (e) => {
-//   const projectName = document.querySelector("#input-project-name");
-//   if (projectName.value) {
-//     addProject({ name: projectName.value });
-//     projectName.value = "";
-//   } else {
-//     alert("Invalid form");
-//   }
-// });
+
 export { addProject, renderProjects };
