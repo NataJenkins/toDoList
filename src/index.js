@@ -21,9 +21,9 @@ const { saveTask, renderTasks } = Tasks();
 if (localStorage.getItem("projects")) {
   renderProjects();
 }
-document.querySelector("#save-task-btn").addEventListener("click", (e) => {
-  saveTask(currentProject);
-});
+// document.querySelector("#save-task-btn").addEventListener("click", (e) => {
+//   saveTask(currentProject);
+// });
 const renderTaskContainer = (isCurrentProject) => {
   if (!isCurrentProject) {
     document.querySelector(".tasks-container").classList.add("d-none");

@@ -26,6 +26,7 @@ const renderProjects = () => {
     projectListElement.appendChild(displayProject(project));
   });
 };
+
 const addProject = ({ name }) => {
   let projectArray = getLocalStorageProjects();
   if (projectArray) {
@@ -35,15 +36,16 @@ const addProject = ({ name }) => {
     const projectId = 0;
     setLocalStorageProjects([{ name, id: projectId }]);
   }
-  renderProjects();
+  return { name };
+  //renderProjects();
 };
-document.querySelector("#save-project-btn").addEventListener("click", (e) => {
-  const projectName = document.querySelector("#input-project-name");
-  if (projectName.value) {
-    addProject({ name: projectName.value });
-    projectName.value = "";
-  } else {
-    alert("Invalid form");
-  }
-});
+// document.querySelector("#save-project-btn").addEventListener("click", (e) => {
+//   const projectName = document.querySelector("#input-project-name");
+//   if (projectName.value) {
+//     addProject({ name: projectName.value });
+//     projectName.value = "";
+//   } else {
+//     alert("Invalid form");
+//   }
+// });
 export { addProject, renderProjects };
