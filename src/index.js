@@ -1,5 +1,5 @@
 import { renderProjects } from "./projects";
-import Tasks from "./tasks";
+import { saveTask, renderTasks } from "./tasks";
 export const changeProjectName = (name, id) => {
   currentProject = name;
   const taskHeader = document.querySelector(".tasks-container > h1");
@@ -17,13 +17,10 @@ export const changeProjectName = (name, id) => {
 export const filterTaskByCurrentProject = (tasksArr) =>
   tasksArr.filter((task) => task && task.project === currentProject);
 let currentProject = undefined;
-const { saveTask, renderTasks } = Tasks();
 if (localStorage.getItem("projects")) {
   renderProjects();
 }
-// document.querySelector("#save-task-btn").addEventListener("click", (e) => {
-//   saveTask(currentProject);
-// });
+
 const renderTaskContainer = (isCurrentProject) => {
   if (!isCurrentProject) {
     document.querySelector(".tasks-container").classList.add("d-none");
