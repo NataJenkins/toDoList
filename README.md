@@ -21,7 +21,7 @@
 
 To get a local copy up and running follow these simple steps:
 
-1. Go to the [repository page](https://github.com/pointerish/Books/).
+1. Go to the [repository page](https://github.com/NataJenkis/ToDoList).
 2. Press the "Code" button and copy the link.
 3. Clone it using git command `git clone <link>`.
 4. On console cd into project folder

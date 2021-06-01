@@ -14,7 +14,6 @@ const displayProject = ({ id, name }) => {
 };
 const getLocalStorageProjects = () => {
   return JSON.parse(localStorage.getItem("projects"));
-  console.log(JSON.parse(localStorage.getItem("projects")));
 };
 const setLocalStorageProjects = (newProjectArray) => {
   localStorage.setItem("projects", JSON.stringify(newProjectArray));
