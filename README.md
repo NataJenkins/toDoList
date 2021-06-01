@@ -29,6 +29,12 @@ To get a local copy up and running follow these simple steps:
 6. run npm run build
 7. open index on browser
 
+### Test
+
+**In order to run the test for the project you should install the dependencies `npm install` as well explained before and then run the next command to run all the test.**
+
+`npm run test`
+
 ## :bust_in_silhouette: Author
 
 👤 **Natalia Macias**

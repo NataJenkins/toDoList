@@ -1,4 +1,4 @@
-import { addProject } from "../projects";
+import { addProject } from "../src/projects";
 
 it("works", () => {
   expect(1).toEqual(1);
@@ -6,7 +6,6 @@ it("works", () => {
 
 describe("Projects", () => {
   const testProject = addProject({ name: "hola" });
-  console.log(testProject);
   it("Project should have given name", () => {
     expect(testProject.name).toEqual("hola");
   });

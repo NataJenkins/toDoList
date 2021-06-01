@@ -1,4 +1,4 @@
-import { addTask } from "../tasks";
+import { addTask } from "../src/tasks";
 
 it("works", () => {
   expect(1).toEqual(1);
@@ -11,7 +11,6 @@ describe("Tasks", () => {
     date: "03/03/2021",
     priority: 1,
   });
-  console.log(testTask);
   it("Task should have given name", () => {
     expect(testTask.title).toEqual("testTask");
   });
